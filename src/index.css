@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Lucky Darbar Restaurant Design System */
+
+@layer base {
+  :root {
+    /* Restaurant Brand Colors - Warm Indian Palette */
+    --background: 35 15% 98%;
+    --foreground: 20 20% 15%;
+
+    --card: 35 25% 97%;
+    --card-foreground: 20 20% 15%;
+
+    --popover: 35 25% 97%;
+    --popover-foreground: 20 20% 15%;
+
+    /* Rich Deep Red Primary */
+    --primary: 355 85% 45%;
+    --primary-foreground: 35 15% 98%;
+
+    /* Warm Gold Secondary */
+    --secondary: 45 95% 65%;
+    --secondary-foreground: 20 20% 15%;
+
+    /* Soft Cream Muted */
+    --muted: 35 35% 92%;
+    --muted-foreground: 20 15% 55%;
+
+    /* Rich Orange Accent */
+    --accent: 25 90% 60%;
+    --accent-foreground: 35 15% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 35 15% 98%;
+
+    --border: 35 25% 88%;
+    --input: 35 25% 94%;
+    --ring: 355 85% 45%;
+
+    --radius: 0.75rem;
+
+    /* Custom Restaurant Colors */
+    --spice-red: 355 85% 45%;
+    --golden-yellow: 45 95% 65%;
+    --tandoori-orange: 25 90% 60%;
+    --curry-green: 135 50% 40%;
+    --warm-cream: 35 35% 92%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--spice-red)), hsl(var(--tandoori-orange)));
+    --gradient-card: linear-gradient(145deg, hsl(var(--background)), hsl(var(--warm-cream)));
+    --gradient-accent: linear-gradient(90deg, hsl(var(--golden-yellow)), hsl(var(--tandoori-orange)));
+    
+    /* Shadows */
+    --shadow-warm: 0 10px 30px -5px hsl(var(--spice-red) / 0.15);
+    --shadow-soft: 0 4px 20px -2px hsl(var(--muted-foreground) / 0.1);
+    --shadow-glow: 0 0 30px hsl(var(--golden-yellow) / 0.3);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark mode with warm restaurant tones */
+    --background: 20 25% 8%;
+    --foreground: 35 15% 98%;
+
+    --card: 20 20% 12%;
+    --card-foreground: 35 15% 98%;
+
+    --popover: 20 20% 12%;
+    --popover-foreground: 35 15% 98%;
+
+    --primary: 355 85% 55%;
+    --primary-foreground: 35 15% 98%;
+
+    --secondary: 20 15% 18%;
+    --secondary-foreground: 35 15% 98%;
+
+    --muted: 20 15% 18%;
+    --muted-foreground: 35 10% 65%;
+
+    --accent: 25 90% 65%;
+    --accent-foreground: 20 25% 8%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 35 15% 98%;
+
+    --border: 20 15% 18%;
+    --input: 20 15% 18%;
+    --ring: 355 85% 55%;
+    
+    /* Dark mode custom colors */
+    --spice-red: 355 85% 55%;
+    --golden-yellow: 45 95% 70%;
+    --tandoori-orange: 25 90% 65%;
+    --curry-green: 135 50% 45%;
+    --warm-cream: 20 15% 18%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-poppins;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-montserrat font-semibold;
+  }
+}
+
+@layer components {
+  /* Restaurant-specific animations */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .hover-lift {
+    transition: var(--transition-smooth);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-warm);
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
